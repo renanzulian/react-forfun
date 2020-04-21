@@ -29,7 +29,7 @@ small {
     border-radius: 8px;
     width: 50%;
     margin: 10px auto 10px auto;
-    padding: 20px 0px 20px 0px;
+    padding: 10px 0px 20px 0px;
     box-shadow: rgb(93, 93, 93) 2px 2px 5px;
 }
 
@@ -40,13 +40,47 @@ input {
     border-radius: 3px;
     height: 20px;
     text-align: center;
+    margin-bottom: 5px;
 }
 
-button {
+.button {
+    background-color: white; /* Green */
+    border: none;
+    color: black;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
     display: block;
+    font-size: 16px;
     margin: auto;
-    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    transition-duration: 0.4s;
     cursor: pointer;
-    height: 25px;
-    width: 100px;
+    border: 2px solid #555555;
+    border-radius: 5px;
+    box-shadow: rgb(185, 185, 185) 1px 1px 10px;
+    ;
+}
+
+.button-clear {
+    background-color: rgb(255, 244, 83);
+    color: black;
+    border: solid 1px black;
+    margin: 5px 5px 5px 5px;
+    border-radius: 20px;
+
+}
+
+.button-remove {
+    background-color: rgb(255, 83, 83);
+    color: white;
+    border: solid 1px black;
+    margin: 5px 5px 5px 5px;
+    border-radius: 20px;
+}
+
+.button:hover {
+    background-color: #555555;
+    color: white;
 }
