@@ -5,18 +5,12 @@ import UserInput from './UserInput/UserInput'
 
 class App extends Component {
   state = {
-    user: {
-      id: 1,
-        content: 'This is the element 1'
-    }
+    username: 'Greatest Developer'
   }
   
   userHandler = (event) => {
     this.setState({
-      user: {
-        id: 1,
-        content: event.target.value
-      }
+      username: event.target.value
     })
   }
 
@@ -24,10 +18,10 @@ class App extends Component {
     return (
     <div className="App"> 
       <h1>I'm the App Component</h1>
-      <UserOutput identity={this.state.user.id} content={this.state.user.content}>
-        <UserInput identity={this.state.user.id} 
-        content={this.state.user.content} change={this.userHandler} />
-      </UserOutput>
+      <UserInput content={this.state.username} change={this.userHandler}/>
+      <UserOutput identity="1" content={this.state.username} />
+      <UserOutput identity="2" content={this.state.username} />
+      <UserOutput identity="3" content={this.state.username} />
     </div>
     )
   }
