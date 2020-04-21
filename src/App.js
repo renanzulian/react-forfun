@@ -5,7 +5,9 @@ import UserInput from './UserInput/UserInput'
 
 class App extends Component {
   state = {
-    username: 'Greatest Developer'
+    username: 'Greatest Developer',
+    showOutputs: false,
+    users: [1, 2, 3, 4]
   }
   
   userHandler = (event) => {
@@ -14,14 +16,29 @@ class App extends Component {
     })
   }
 
+  toggleOutputHandler = () => {
+    const currentState = this.state.showOutputs
+    this.setState({
+      showOutputs: !currentState
+    })
+  }
+
   render() {
     return (
     <div className="App"> 
       <h1>I'm the App Component</h1>
-      <UserInput content={this.state.username} change={this.userHandler}/>
-      <UserOutput identity="1" content={this.state.username} />
-      <UserOutput identity="2" content={this.state.username} />
-      <UserOutput identity="3" content={this.state.username} />
+      <UserInput content={this.state.username} change={this.userHandler} click={this.toggleOutputHandler} />
+      {
+        this.state.showOutputs ?
+        <div>
+          {
+            this.state.users.map(user => {
+              return <UserOutput identity={user} key={user} content={this.state.username} />
+            })
+          }
+        </div> : null
+      }
+      
     </div>
     )
   }
