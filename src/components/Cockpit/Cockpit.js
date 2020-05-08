@@ -1,6 +1,7 @@
 import React from 'react'
 
 const cockpit = (props) => {
+  console.log('[Cockpit] renderirng...')
   return (
     <div>
       <h1>{props.title}</h1>
