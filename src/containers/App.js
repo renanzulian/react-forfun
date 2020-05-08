@@ -4,14 +4,23 @@ import Users from '../components/Users/Users'
 import Cocktip from '../components/Cockpit/Cockpit'
 
 class App extends Component {
-  state = {
-    users: [
-      {
-        id: 1,
-        username: 'Example',
-      },
-    ],
-    showOutputs: false,
+  constructor(props) {
+    super(props)
+    console.log('[App.js] constructor')
+    this.state = {
+      users: [
+        {
+          id: 1,
+          username: 'Example',
+        },
+      ],
+      showOutputs: false,
+    }
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    console.log('[App.js] getDerivedStateFromProps ', props)
+    return state
   }
 
   userHandler = (event, idUser) => {
@@ -68,7 +77,12 @@ class App extends Component {
     })
   }
 
+  componentDidMount() {
+    console.log('[App.js] componentDidMount')
+  }
+
   render() {
+    console.log('[App.js] on render')
     return (
       <div className="App">
         <Cocktip

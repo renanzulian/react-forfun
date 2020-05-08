@@ -1,19 +1,45 @@
-import React from "react";
+import React, { Component } from 'react'
 import UserInput from './UserInput/UserInput'
 import UserOutput from './UserOutput/UserOutput'
 
-const persons = (props) =>
-  props.users.map((user) => {
-    return (
-      <UserOutput id={user.id} key={user.id} username={user.username}>
-        <UserInput
-          clear={props.clear.bind(this, user.id)}
-          remove={props.remove.bind(this, user.id)}
-          change={(event) => props.change(event, user.id)}
-          username={user.username}
-        />
-      </UserOutput>
-    );
-  });
+class Persons extends Component {
+  // static getDerivedStateFromProps(props, state) {
+  //   console.log('[Users] getDerivedStateFromProps', props)
+  //   return state
+  // }
 
-export default persons;
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('[Users] shouldComponentUpdate', nextProps)
+    console.log(nextProps, nextState)
+    return true
+  }
+
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    console.log('[Users] getSnapshotBeforeUpdate')
+    console.log(prevProps, prevState)
+    return { message: 'snap' }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log('[Users] componentDidUpdate')
+
+  }
+
+  render() {
+    console.log('[Users] renderirng...')
+    return this.props.users.map((user) => {
+      return (
+        <UserOutput id={user.id} key={user.id} username={user.username}>
+          <UserInput
+            clear={this.props.clear.bind(this, user.id)}
+            remove={this.props.remove.bind(this, user.id)}
+            change={(event) => this.props.change(event, user.id)}
+            username={user.username}
+          />
+        </UserOutput>
+      )
+    })
+  }
+}
+
+export default Persons

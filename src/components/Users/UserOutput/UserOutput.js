@@ -1,16 +1,19 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-const userOutput = (props) => {
-  return (
-    <div className="UserOutput">
-      <p>
-        Component ID: <strong>{props.id}</strong>
-      </p>
-      <p>{props.username || 'It does not has content'}</p>
-      <div>{props.children || 'It does not has input'}</div>
-      <small>UserOutput element</small>
-    </div>
-  )
+class UserOutput extends Component {
+  render() {
+    console.log('[UserOutput.js] rendering ....')
+    return (
+      <div className="UserOutput">
+        <p>
+          Component ID: <strong>{this.props.id}</strong>
+        </p>
+        <p>{this.props.username || 'It does not has content'}</p>
+        <div>{this.props.children || 'It does not has input'}</div>
+        <small>UserOutput element</small>
+      </div>
+    )
+  }
 }
 
-export default userOutput
+export default UserOutput
