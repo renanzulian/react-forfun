@@ -72,6 +72,7 @@ class App extends Component {
     return (
       <div className="App">
         <Cocktip
+          title={this.props.appTitle}
           showHide={this.toggleOutputHandler}
           newUser={this.addNewUser}
         />

@@ -3,7 +3,7 @@ import React from 'react'
 const cockpit = (props) => {
   return (
     <div>
-      <h1>I'm the App Component</h1>
+      <h1>{props.title}</h1>
       <button className="button" onClick={props.showHide}>
         Show/Hide
       </button>
