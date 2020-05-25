@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 
 class UserOutput extends Component {
+  componentWillUnmount() {
+    console.log(`[UserOutput.js] user ${this.props.id} saying bye ....`)
+  }
+
   render() {
     console.log('[UserOutput.js] rendering ....')
     return (
