@@ -20,12 +20,6 @@ class Persons extends Component {
     return { message: 'snap' }
   }
 
-  shouldComponentUpdate(prevProps, prevState) {
-    console.log('[Users] shouldComponentUpdate')
-    console.log(`prevProvs: ${prevProps}, prevState: ${prevState}`)
-    return true
-  }
-
   componentDidUpdate(prevProps, prevState, snapshoot) {
     console.log('[Users] componentDidUpdate')
     console.log(snapshoot)
